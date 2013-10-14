@@ -1,36 +1,40 @@
 //
-//  AldMasterViewController.m
+//  AldOfficeSelectionViewController.m
 //  leowic-3_Labb3a
 //
 //  Created by Leonard Wickmark on 10/14/13.
 //  Copyright (c) 2013 LTU. All rights reserved.
 //
 
-#import "AldMasterViewController.h"
-#import "AldDataModel.h"
-#import "AldAFCounty.h"
-#import "AldDataModelConstants.h"
 #import "AldOfficeSelectionViewController.h"
+#import "AldOfficeDetailsViewController.h"
+#import "AldDataModel.h"
+#import "AldAFOffice.h"
+#import "AldDataModelConstants.h"
 
-@interface AldMasterViewController () {
+@interface AldOfficeSelectionViewController ()  {
     NSArray *_objects;
 }
-
 @end
 
-@implementation AldMasterViewController
+@implementation AldOfficeSelectionViewController
 
--(void) awakeFromNib
+-(id) initWithStyle:(UITableViewStyle)style
 {
-    [super awakeFromNib];
+    self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
 }
 
 -(void) viewDidLoad
 {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveCountyArray:) name:kAldDataModelSignalCounties object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveOfficesInCountyArray:) name:kAldDataModelSignalOffices object:nil];
     
-    [[AldDataModel defaultModel] requestCounties];
+    [self setTitle:self.county.name];
+    [[AldDataModel defaultModel] requestOfficesInCounty:self.county];
 }
 
 -(void) didReceiveMemoryWarning
@@ -41,15 +45,15 @@
 
 #pragma mark - Notification center
 
--(void) receiveCountyArray: (NSNotification *)notification
+-(void) receiveOfficesInCountyArray: (NSNotification *)notification
 {
-    _objects = [notification.userInfo objectForKey:kAldDataModelSignalCounties];
-
+    _objects = [notification.userInfo objectForKey:kAldDataModelSignalOffices];
+    
     UITableView *view = (UITableView *)self.view;
     [view reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
 }
 
-#pragma mark - Table View
+#pragma mark - Table view data source
 
 -(NSInteger) numberOfSectionsInTableView: (UITableView *)tableView
 {
@@ -64,21 +68,22 @@
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-
-    AldAFCounty *object = _objects[indexPath.row];
+    
+    AldAFOffice *object = _objects[indexPath.row];
     cell.textLabel.text = [object name];
     return cell;
 }
 
 -(void) prepareForSegue: (UIStoryboardSegue *)segue sender: (id)sender
 {
-    if ([[segue identifier] isEqualToString:@"officeSelection"]) {
+    if ([[segue identifier] isEqualToString:@"officeDetails"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         id object = _objects[indexPath.row];
         
-        AldOfficeSelectionViewController *nextController = (AldOfficeSelectionViewController *)segue.destinationViewController;
-        [nextController setCounty:object];
+        AldOfficeDetailsViewController *nextController = (AldOfficeDetailsViewController *)segue.destinationViewController;
+        [nextController setOffice:object];
     }
 }
+
 
 @end

@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AldJSONInterpreter.h"
+#import "AldJSONInterpreterProtocol.h"
 
 @interface AldRequestState : NSObject
 
-@property(nonatomic, strong) NSObject<AldJSONInterpreter> *interpreter;
-@property(nonatomic, strong) NSMutableData                *data;
+@property(nonatomic, strong) NSObject<AldJSONInterpreterProtocol> *interpreter;
+@property(nonatomic, strong) NSMutableData                        *data;
 
--(id) initWithInterpreter: (NSObject<AldJSONInterpreter> *)interpreter;
+-(id) initWithInterpreter: (NSObject<AldJSONInterpreterProtocol> *)interpreter;
 
 @end

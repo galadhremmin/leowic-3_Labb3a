@@ -10,7 +10,7 @@
 
 @implementation AldRequestState
 
--(id) initWithInterpreter: (NSObject<AldJSONInterpreter> *)interpreter
+-(id) initWithInterpreter: (NSObject<AldJSONInterpreterProtocol> *)interpreter
 {
     self = [super init];
     if (self) {

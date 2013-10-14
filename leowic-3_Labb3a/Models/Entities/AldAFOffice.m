@@ -1,21 +1,21 @@
 //
-//  AldAFCounty.m
+//  AldAFOffice.m
 //  leowic-3_Labb3a
 //
 //  Created by Leonard Wickmark on 10/14/13.
 //  Copyright (c) 2013 LTU. All rights reserved.
 //
 
-#import "AldAFCounty.h"
+#import "AldAFOffice.h"
 
-@implementation AldAFCounty
+@implementation AldAFOffice
 
 -(id) initWithDictionary: (NSDictionary *)dict
 {
     self = [super init];
     if (self) {
-        [self setEntityId: [dict objectForKey:@"id"]];
-        [self setName:     [dict objectForKey:@"namn"]];
+        [self setEntityId: [dict objectForKey:@"afplatskod"]];
+        [self setName:     [dict objectForKey:@"afplatsnamn"]];
     }
     
     return self;

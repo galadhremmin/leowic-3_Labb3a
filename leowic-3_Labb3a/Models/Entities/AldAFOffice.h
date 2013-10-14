@@ -1,5 +1,5 @@
 //
-//  AldAFCounty.h
+//  AldAFOffice.h
 //  leowic-3_Labb3a
 //
 //  Created by Leonard Wickmark on 10/14/13.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "AldJSONEntityProtocol.h"
 
-@interface AldAFCounty : NSObject<AldJSONEntityProtocol>
+@interface AldAFOffice : NSObject<AldJSONEntityProtocol>
 
 @property(nonatomic, copy) NSString *entityId;
 @property(nonatomic, copy) NSString *name;

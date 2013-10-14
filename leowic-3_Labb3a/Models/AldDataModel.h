@@ -7,9 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AldAFCounty.h"
+#import "AldAFOffice.h"
 
 @interface AldDataModel : NSObject<NSURLConnectionDelegate>
 
++(AldDataModel *) defaultModel;
 -(void) requestCounties;
+-(void) requestOfficesInCounty: (AldAFCounty *)county;
+-(void) requestDetailsForOffice: (AldAFOffice *)office;
 
 @end

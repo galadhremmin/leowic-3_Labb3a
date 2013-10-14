@@ -17,15 +17,9 @@
     return kAldDataModelSignalCounties;
 }
 
--(id) interpret: (NSData *)data
+-(id) interpretJSONDictionary: (NSDictionary *)data
 {
-    NSError *error;
-    NSDictionary* json = [NSJSONSerialization
-                          JSONObjectWithData:data
-                          options:kNilOptions
-                          error:&error];
-    
-    id counties = [[json objectForKey:@"soklista"] objectForKey:@"sokdata"];
+    id counties = [[data objectForKey:@"soklista"] objectForKey:@"sokdata"];
     NSMutableArray *result = [NSMutableArray array];
     for (NSDictionary *countyData in counties) {
         AldAFCounty *county = [[AldAFCounty alloc] initWithDictionary:countyData];

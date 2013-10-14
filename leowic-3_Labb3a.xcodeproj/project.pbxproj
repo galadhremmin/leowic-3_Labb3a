@@ -17,12 +17,18 @@
 		D750C664180C37E6000D762A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D750C663180C37E6000D762A /* Default@2x.png */; };
 		D750C666180C37E6000D762A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D750C665180C37E6000D762A /* Default-568h@2x.png */; };
 		D750C669180C37E6000D762A /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D750C667180C37E6000D762A /* MainStoryboard.storyboard */; };
-		D750C680180C3B11000D762A /* AldDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D750C67D180C3B11000D762A /* AldDetailViewController.m */; };
 		D750C681180C3B11000D762A /* AldMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D750C67F180C3B11000D762A /* AldMasterViewController.m */; };
 		D750C685180C3B4D000D762A /* AldDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D750C684180C3B4D000D762A /* AldDataModel.m */; };
 		D750C689180C3C2A000D762A /* AldAFCounty.m in Sources */ = {isa = PBXBuildFile; fileRef = D750C688180C3C2A000D762A /* AldAFCounty.m */; };
 		D750C690180C473E000D762A /* AldRequestState.m in Sources */ = {isa = PBXBuildFile; fileRef = D750C68F180C473E000D762A /* AldRequestState.m */; };
 		D750C698180C5E37000D762A /* AldAFCountyInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = D750C695180C5E37000D762A /* AldAFCountyInterpreter.m */; };
+		D750C69B180C636A000D762A /* AldOfficeSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D750C69A180C636A000D762A /* AldOfficeSelectionViewController.m */; };
+		D750C69E180C6596000D762A /* AldAFOfficesInCountyInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = D750C69D180C6596000D762A /* AldAFOfficesInCountyInterpreter.m */; };
+		D750C6A1180C6718000D762A /* AldJSONInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = D750C6A0180C6718000D762A /* AldJSONInterpreter.m */; };
+		D750C6A4180C694C000D762A /* AldAFOffice.m in Sources */ = {isa = PBXBuildFile; fileRef = D750C6A3180C694C000D762A /* AldAFOffice.m */; };
+		D750C6A7180C6D88000D762A /* AldOfficeDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D750C6A6180C6D88000D762A /* AldOfficeDetailsViewController.m */; };
+		D750C6AA180C6EDC000D762A /* AldAFOfficeDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = D750C6A9180C6EDC000D762A /* AldAFOfficeDetails.m */; };
+		D750C6AD180C741C000D762A /* AldAFOfficeDetailInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = D750C6AC180C741C000D762A /* AldAFOfficeDetailInterpreter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,8 +46,6 @@
 		D750C663180C37E6000D762A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		D750C665180C37E6000D762A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D750C668180C37E6000D762A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		D750C67C180C3B11000D762A /* AldDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AldDetailViewController.h; sourceTree = "<group>"; };
-		D750C67D180C3B11000D762A /* AldDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AldDetailViewController.m; sourceTree = "<group>"; };
 		D750C67E180C3B11000D762A /* AldMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AldMasterViewController.h; sourceTree = "<group>"; };
 		D750C67F180C3B11000D762A /* AldMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AldMasterViewController.m; sourceTree = "<group>"; };
 		D750C683180C3B4D000D762A /* AldDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AldDataModel.h; sourceTree = "<group>"; };
@@ -54,7 +58,21 @@
 		D750C694180C5E37000D762A /* AldAFCountyInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AldAFCountyInterpreter.h; sourceTree = "<group>"; };
 		D750C695180C5E37000D762A /* AldAFCountyInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AldAFCountyInterpreter.m; sourceTree = "<group>"; };
 		D750C696180C5E37000D762A /* AldDataModelConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AldDataModelConstants.h; sourceTree = "<group>"; };
-		D750C697180C5E37000D762A /* AldJSONInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AldJSONInterpreter.h; sourceTree = "<group>"; };
+		D750C697180C5E37000D762A /* AldJSONInterpreterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AldJSONInterpreterProtocol.h; sourceTree = "<group>"; };
+		D750C699180C636A000D762A /* AldOfficeSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AldOfficeSelectionViewController.h; sourceTree = "<group>"; };
+		D750C69A180C636A000D762A /* AldOfficeSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AldOfficeSelectionViewController.m; sourceTree = "<group>"; };
+		D750C69C180C6596000D762A /* AldAFOfficesInCountyInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AldAFOfficesInCountyInterpreter.h; sourceTree = "<group>"; };
+		D750C69D180C6596000D762A /* AldAFOfficesInCountyInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AldAFOfficesInCountyInterpreter.m; sourceTree = "<group>"; };
+		D750C69F180C6718000D762A /* AldJSONInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AldJSONInterpreter.h; sourceTree = "<group>"; };
+		D750C6A0180C6718000D762A /* AldJSONInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AldJSONInterpreter.m; sourceTree = "<group>"; };
+		D750C6A2180C694C000D762A /* AldAFOffice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AldAFOffice.h; sourceTree = "<group>"; };
+		D750C6A3180C694C000D762A /* AldAFOffice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AldAFOffice.m; sourceTree = "<group>"; };
+		D750C6A5180C6D88000D762A /* AldOfficeDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AldOfficeDetailsViewController.h; sourceTree = "<group>"; };
+		D750C6A6180C6D88000D762A /* AldOfficeDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AldOfficeDetailsViewController.m; sourceTree = "<group>"; };
+		D750C6A8180C6EDC000D762A /* AldAFOfficeDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AldAFOfficeDetails.h; sourceTree = "<group>"; };
+		D750C6A9180C6EDC000D762A /* AldAFOfficeDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AldAFOfficeDetails.m; sourceTree = "<group>"; };
+		D750C6AB180C741B000D762A /* AldAFOfficeDetailInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AldAFOfficeDetailInterpreter.h; sourceTree = "<group>"; };
+		D750C6AC180C741C000D762A /* AldAFOfficeDetailInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AldAFOfficeDetailInterpreter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,10 +146,12 @@
 		D750C67B180C3B11000D762A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D750C67C180C3B11000D762A /* AldDetailViewController.h */,
-				D750C67D180C3B11000D762A /* AldDetailViewController.m */,
 				D750C67E180C3B11000D762A /* AldMasterViewController.h */,
 				D750C67F180C3B11000D762A /* AldMasterViewController.m */,
+				D750C699180C636A000D762A /* AldOfficeSelectionViewController.h */,
+				D750C69A180C636A000D762A /* AldOfficeSelectionViewController.m */,
+				D750C6A5180C6D88000D762A /* AldOfficeDetailsViewController.h */,
+				D750C6A6180C6D88000D762A /* AldOfficeDetailsViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -152,9 +172,13 @@
 		D750C686180C3BA1000D762A /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				D750C68A180C3E0F000D762A /* AldJSONEntityProtocol.h */,
 				D750C687180C3C2A000D762A /* AldAFCounty.h */,
 				D750C688180C3C2A000D762A /* AldAFCounty.m */,
-				D750C68A180C3E0F000D762A /* AldJSONEntityProtocol.h */,
+				D750C6A2180C694C000D762A /* AldAFOffice.h */,
+				D750C6A3180C694C000D762A /* AldAFOffice.m */,
+				D750C6A8180C6EDC000D762A /* AldAFOfficeDetails.h */,
+				D750C6A9180C6EDC000D762A /* AldAFOfficeDetails.m */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -162,10 +186,16 @@
 		D750C693180C5E37000D762A /* DataSourceFactory */ = {
 			isa = PBXGroup;
 			children = (
+				D750C696180C5E37000D762A /* AldDataModelConstants.h */,
+				D750C697180C5E37000D762A /* AldJSONInterpreterProtocol.h */,
+				D750C69F180C6718000D762A /* AldJSONInterpreter.h */,
+				D750C6A0180C6718000D762A /* AldJSONInterpreter.m */,
 				D750C694180C5E37000D762A /* AldAFCountyInterpreter.h */,
 				D750C695180C5E37000D762A /* AldAFCountyInterpreter.m */,
-				D750C696180C5E37000D762A /* AldDataModelConstants.h */,
-				D750C697180C5E37000D762A /* AldJSONInterpreter.h */,
+				D750C69C180C6596000D762A /* AldAFOfficesInCountyInterpreter.h */,
+				D750C69D180C6596000D762A /* AldAFOfficesInCountyInterpreter.m */,
+				D750C6AB180C741B000D762A /* AldAFOfficeDetailInterpreter.h */,
+				D750C6AC180C741C000D762A /* AldAFOfficeDetailInterpreter.m */,
 			);
 			path = DataSourceFactory;
 			sourceTree = "<group>";
@@ -239,12 +269,18 @@
 			files = (
 				D750C65C180C37E6000D762A /* main.m in Sources */,
 				D750C660180C37E6000D762A /* AldAppDelegate.m in Sources */,
-				D750C680180C3B11000D762A /* AldDetailViewController.m in Sources */,
 				D750C681180C3B11000D762A /* AldMasterViewController.m in Sources */,
 				D750C685180C3B4D000D762A /* AldDataModel.m in Sources */,
 				D750C689180C3C2A000D762A /* AldAFCounty.m in Sources */,
 				D750C690180C473E000D762A /* AldRequestState.m in Sources */,
 				D750C698180C5E37000D762A /* AldAFCountyInterpreter.m in Sources */,
+				D750C69B180C636A000D762A /* AldOfficeSelectionViewController.m in Sources */,
+				D750C69E180C6596000D762A /* AldAFOfficesInCountyInterpreter.m in Sources */,
+				D750C6A1180C6718000D762A /* AldJSONInterpreter.m in Sources */,
+				D750C6A4180C694C000D762A /* AldAFOffice.m in Sources */,
+				D750C6A7180C6D88000D762A /* AldOfficeDetailsViewController.m in Sources */,
+				D750C6AA180C6EDC000D762A /* AldAFOfficeDetails.m in Sources */,
+				D750C6AD180C741C000D762A /* AldAFOfficeDetailInterpreter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

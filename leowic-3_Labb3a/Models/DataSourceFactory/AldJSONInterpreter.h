@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AldJSONInterpreterProtocol.h"
 
-@protocol AldJSONInterpreter <NSObject>
+@interface AldJSONInterpreter : NSObject<AldJSONInterpreterProtocol>
 
--(NSString *) interpretationId;
--(id) interpret: (NSData *)data;
+-(id) interpretJSON:(NSData *)data;
+-(id) interpretJSONDictionary:(NSDictionary *)data; // <~~ "abstract" ie must be implemented
 
 @end

@@ -1,5 +1,5 @@
 //
-//  AldAFCountyInterpreter.h
+//  AldAFOfficeDetailInterpreter.h
 //  leowic-3_Labb3a
 //
 //  Created by Leonard Wickmark on 10/14/13.
@@ -9,9 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "AldJSONInterpreter.h"
 
-@interface AldAFCountyInterpreter : AldJSONInterpreter
+@interface AldAFOfficeDetailInterpreter : AldJSONInterpreter
 
--(NSString *) interpretationId;
 -(id) interpretJSONDictionary: (NSDictionary *)data;
 
 @end

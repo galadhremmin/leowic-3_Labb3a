@@ -9,7 +9,11 @@
 #import <CoreFoundation/CoreFoundation.h>
 #import "AldDataModel.h"
 #import "AldAFCountyInterpreter.h"
+#import "AldAFOfficesInCountyInterpreter.h"
+#import "AldAFOfficeDetailInterpreter.h"
 #import "AldRequestState.h"
+
+static AldDataModel *_defaultModel = nil;
 
 @interface AldDataModel() {
     NSMutableSet *_activeConnections;
@@ -19,6 +23,17 @@
 @end
 
 @implementation AldDataModel
+
++(AldDataModel *) defaultModel
+{
+    @synchronized(self) {
+        if (_defaultModel == nil) {
+            _defaultModel = [[AldDataModel alloc] init];
+        }
+    }
+    
+    return _defaultModel;
+}
 
 -(id) init
 {
@@ -43,10 +58,32 @@
     [self enqueueRequestWithURL:@"http://api.arbetsformedlingen.se/arbetsformedling/soklista/lan" withInterpreter:[AldAFCountyInterpreter class]];
 }
 
+-(void) requestOfficesInCounty: (AldAFCounty *)county
+{
+    if (county == nil) {
+        return;
+    }
+    
+    NSString *urlString = [NSString stringWithFormat:@"http://api.arbetsformedlingen.se/arbetsformedling/platser?lanid=%@", county.entityId];
+    [self enqueueRequestWithURL:urlString withInterpreter:[AldAFOfficesInCountyInterpreter class]];
+}
+
+-(void) requestDetailsForOffice: (AldAFOffice *)office
+{
+    if (office == nil) {
+        return;
+    }
+    
+    NSString *urlString = [NSString stringWithFormat:@"http://api.arbetsformedlingen.se/arbetsformedling/%@", office.entityId];
+    [self enqueueRequestWithURL:urlString withInterpreter:[AldAFOfficeDetailInterpreter class]];
+}
+
 -(void) enqueueRequestWithURL: (NSString *)urlString withInterpreter: (Class) class
 {
     NSURL *url = [NSURL URLWithString:urlString];
-    NSURLRequest *req = [NSURLRequest requestWithURL:url];
+    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
+    [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+
     NSURLConnection *conn = [NSURLConnection connectionWithRequest:req delegate:self];
     
     id interpreter = [[class alloc] init];
@@ -105,7 +142,7 @@
         return;
     }
     
-    id data = [state.interpreter interpret:state.data];
+    id data = [state.interpreter interpretJSON:state.data];
     [[NSNotificationCenter defaultCenter] postNotificationName:state.interpreter.interpretationId object:self userInfo:[NSDictionary dictionaryWithObject:data forKey:state.interpreter.interpretationId]];
         
     [self makeStateObsolete:connection];
