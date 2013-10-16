@@ -13,6 +13,11 @@
 @interface AldDataModel : NSObject<NSURLConnectionDelegate>
 
 +(AldDataModel *) defaultModel;
+
+@property(atomic, strong) NSArray *counties;
+@property(atomic, strong) NSMutableDictionary *officesInCounties;
+@property(atomic, strong) NSMutableDictionary *offices;
+
 -(void) requestCounties;
 -(void) requestOfficesInCounty: (AldAFCounty *)county;
 -(void) requestDetailsForOffice: (AldAFOffice *)office;

@@ -12,9 +12,9 @@
 #import "AldDataModelConstants.h"
 #import "AldOfficeSelectionViewController.h"
 
-@interface AldMasterViewController () {
-    NSArray *_objects;
-}
+@interface AldMasterViewController ()
+
+@property (nonatomic, strong) AldDataModel *model;
 
 @end
 
@@ -29,8 +29,9 @@
 {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveCountyArray:) name:kAldDataModelSignalCounties object:nil];
-    
-    [[AldDataModel defaultModel] requestCounties];
+
+    _model = [AldDataModel defaultModel];
+    [_model requestCounties];
 }
 
 -(void) didReceiveMemoryWarning
@@ -43,8 +44,6 @@
 
 -(void) receiveCountyArray: (NSNotification *)notification
 {
-    _objects = [notification.userInfo objectForKey:kAldDataModelSignalCounties];
-
     UITableView *view = (UITableView *)self.view;
     [view reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
 }
@@ -58,14 +57,18 @@
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection: (NSInteger)section
 {
-    return _objects.count;
+    if (_model.counties == nil) {
+        return 0;
+    }
+    
+    return _model.counties.count;
 }
 
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    AldAFCounty *object = _objects[indexPath.row];
+    AldAFCounty *object = _model.counties[indexPath.row];
     cell.textLabel.text = [object name];
     return cell;
 }
@@ -74,7 +77,7 @@
 {
     if ([[segue identifier] isEqualToString:@"officeSelection"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        id object = _objects[indexPath.row];
+        id object = _model.counties[indexPath.row];
         
         AldOfficeSelectionViewController *nextController = (AldOfficeSelectionViewController *)segue.destinationViewController;
         [nextController setCounty:object];

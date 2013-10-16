@@ -7,6 +7,7 @@
 //
 
 #import <CoreFoundation/CoreFoundation.h>
+#import "AldDataModelConstants.h"
 #import "AldDataModel.h"
 #import "AldAFCountyInterpreter.h"
 #import "AldAFOfficesInCountyInterpreter.h"
@@ -55,7 +56,7 @@ static AldDataModel *_defaultModel = nil;
 
 -(void) requestCounties
 {
-    [self enqueueRequestWithURL:@"http://api.arbetsformedlingen.se/arbetsformedling/soklista/lan" withInterpreter:[AldAFCountyInterpreter class]];
+    [self enqueueRequestWithURL:@"http://api.arbetsformedlingen.se/arbetsformedling/soklista/lan" withInterpreter:[AldAFCountyInterpreter class] andUserData:nil];
 }
 
 -(void) requestOfficesInCounty: (AldAFCounty *)county
@@ -65,7 +66,7 @@ static AldDataModel *_defaultModel = nil;
     }
     
     NSString *urlString = [NSString stringWithFormat:@"http://api.arbetsformedlingen.se/arbetsformedling/platser?lanid=%@", county.entityId];
-    [self enqueueRequestWithURL:urlString withInterpreter:[AldAFOfficesInCountyInterpreter class]];
+    [self enqueueRequestWithURL:urlString withInterpreter:[AldAFOfficesInCountyInterpreter class] andUserData:county.entityId];
 }
 
 -(void) requestDetailsForOffice: (AldAFOffice *)office
@@ -75,10 +76,10 @@ static AldDataModel *_defaultModel = nil;
     }
     
     NSString *urlString = [NSString stringWithFormat:@"http://api.arbetsformedlingen.se/arbetsformedling/%@", office.entityId];
-    [self enqueueRequestWithURL:urlString withInterpreter:[AldAFOfficeDetailInterpreter class]];
+    [self enqueueRequestWithURL:urlString withInterpreter:[AldAFOfficeDetailInterpreter class] andUserData:office.entityId];
 }
 
--(void) enqueueRequestWithURL: (NSString *)urlString withInterpreter: (Class) class
+-(void) enqueueRequestWithURL: (NSString *)urlString withInterpreter: (Class) class andUserData: (id)data
 {
     NSURL *url = [NSURL URLWithString:urlString];
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
@@ -88,6 +89,7 @@ static AldDataModel *_defaultModel = nil;
     
     id interpreter = [[class alloc] init];
     AldRequestState *rq = [[AldRequestState alloc] initWithInterpreter: interpreter];
+    rq.userData = data;
     
     // Associate the user data with the connection, and do this by looking at the connection's
     // hash, and using this numeric representation as a key to access the state object.
@@ -143,7 +145,46 @@ static AldDataModel *_defaultModel = nil;
     }
     
     id data = [state.interpreter interpretJSON:state.data];
-    [[NSNotificationCenter defaultCenter] postNotificationName:state.interpreter.interpretationId object:self userInfo:[NSDictionary dictionaryWithObject:data forKey:state.interpreter.interpretationId]];
+    id userData = [NSMutableDictionary dictionary];
+    id iid = state.interpreter.interpretationId;
+    
+    if ([iid isEqualToString:kAldDataModelSignalDefault]) {
+        // default message, assign the result as user data and pass it on, as there is
+        // no container for these sort of messages.
+        [userData setValue:data forKey:kAldDataModelSignalDefault];
+    }
+    
+    else if ([iid isEqualToString:kAldDataModelSignalCounties]) {
+        @synchronized (self.counties) {
+            [self setCounties:data];
+        }
+    }
+    
+    else if ([iid isEqualToString:kAldDataModelSignalOffices]) {
+        @synchronized (self.officesInCounties) {
+            if (self.officesInCounties == nil) {
+                self.officesInCounties = [NSMutableDictionary dictionary];
+            }
+            
+            [self.officesInCounties setValue:data forKey:state.userData];
+        }
+        
+        [userData setValue:state.userData forKey:@"key"];
+    }
+    
+    else if ([iid isEqualToString:kAldDataModelSignalOffice]) {
+        @synchronized (self.officesInCounties) {
+            if (self.offices == nil) {
+                self.offices = [NSMutableDictionary dictionary];
+            }
+            
+            [self.offices setValue:data forKey:state.userData];
+        }
+        
+        [userData setValue:state.userData forKey:@"key"];
+    }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:state.interpreter.interpretationId object:self userInfo:userData];
         
     [self makeStateObsolete:connection];
 }

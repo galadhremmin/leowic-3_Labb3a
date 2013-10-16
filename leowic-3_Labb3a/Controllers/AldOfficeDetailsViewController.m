@@ -13,6 +13,8 @@
 
 @interface AldOfficeDetailsViewController ()
 
+@property (nonatomic, strong) AldDataModel *model;
+
 @end
 
 @implementation AldOfficeDetailsViewController
@@ -24,7 +26,8 @@
     
     [self setTitle:self.office.name];
     
-    [[AldDataModel defaultModel] requestDetailsForOffice:self.office];
+    _model = [AldDataModel defaultModel];
+    [_model requestDetailsForOffice:self.office];
     
 }
 
@@ -38,12 +41,20 @@
 
 -(void) receiveOffice: (NSNotification *)notification
 {
-    AldAFOfficeDetails *details = [notification.userInfo objectForKey:kAldDataModelSignalOffice];
+    AldAFOfficeDetails *details = [_model.offices objectForKey:self.office.entityId];
     
     NSMutableString *html = [NSMutableString string];
     
-    [html appendString:@"<!DOCTYPE html><html><head></head><body>"];
-    [html appendFormat:@"<p>%@</p>", details.extraInformation];
+    [html appendString:@"<!DOCTYPE html><html><head><style>*{font-family:helvetica, sans-serif;}</style></head><body>"];
+    [html appendFormat:@"<h1>%@</h1>", details.name];
+    [html appendFormat:@"<h2>Besöksadress</h2><p>%@<br />%@</p>", details.visitorAddress, details.visitorCity];
+    [html appendFormat:@"<h2>Postadress</h2><p>%@<br />%@ %@</p>", details.mailAddress, details.mailZipcode, details.mailCity];
+    [html appendFormat:@"<h2>Telefonnummer</h2><p>%@<br />%@ (arbetsgivare)<br />%@</p>", details.publicPhoneNumber, details.employerPhoneNumber, details.phoneHours];
+    [html appendFormat:@"<h2>Öppettider</h2><p>%@<br />%@ (självservice)</p>", details.personalServiceHours, details.selfServiceHours];
+    
+    if (details.extraInformation != nil && ![details.extraInformation isEqualToString:@""]) {
+        [html appendFormat:@"<h2>Information</h2><p>%@</p>", details.extraInformation];
+    }
     [html appendString:@"</body></html>"];
     
     [self.detailsView loadHTMLString:html baseURL:nil];

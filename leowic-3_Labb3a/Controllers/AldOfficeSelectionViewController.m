@@ -12,9 +12,10 @@
 #import "AldAFOffice.h"
 #import "AldDataModelConstants.h"
 
-@interface AldOfficeSelectionViewController ()  {
-    NSArray *_objects;
-}
+@interface AldOfficeSelectionViewController ()
+
+@property (nonatomic, strong) AldDataModel *model;
+
 @end
 
 @implementation AldOfficeSelectionViewController
@@ -34,7 +35,9 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveOfficesInCountyArray:) name:kAldDataModelSignalOffices object:nil];
     
     [self setTitle:self.county.name];
-    [[AldDataModel defaultModel] requestOfficesInCounty:self.county];
+    
+    _model = [AldDataModel defaultModel];
+    [_model requestOfficesInCounty:self.county];
 }
 
 -(void) didReceiveMemoryWarning
@@ -47,8 +50,6 @@
 
 -(void) receiveOfficesInCountyArray: (NSNotification *)notification
 {
-    _objects = [notification.userInfo objectForKey:kAldDataModelSignalOffices];
-    
     UITableView *view = (UITableView *)self.view;
     [view reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
 }
@@ -62,14 +63,24 @@
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection: (NSInteger)section
 {
-    return _objects.count;
+    if (_model.officesInCounties == nil) {
+        return 0;
+    }
+    
+    NSArray *offices = [_model.officesInCounties objectForKey:self.county.entityId];
+    if (offices == nil) {
+        return 0;
+    }
+    
+    return offices.count;
 }
 
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    AldAFOffice *object = _objects[indexPath.row];
+    NSArray *offices = [_model.officesInCounties objectForKey:self.county.entityId];
+    AldAFOffice *object = offices[indexPath.row];
     cell.textLabel.text = [object name];
     return cell;
 }
@@ -78,7 +89,8 @@
 {
     if ([[segue identifier] isEqualToString:@"officeDetails"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        id object = _objects[indexPath.row];
+        NSArray *offices = [_model.officesInCounties objectForKey:self.county.entityId];
+        id object = offices[indexPath.row];
         
         AldOfficeDetailsViewController *nextController = (AldOfficeDetailsViewController *)segue.destinationViewController;
         [nextController setOffice:object];
