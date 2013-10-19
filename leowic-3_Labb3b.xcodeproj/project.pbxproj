@@ -32,14 +32,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D750C64C180C37E6000D762A /* leowic-3_Labb3a.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "leowic-3_Labb3a.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D750C64C180C37E6000D762A /* leowic-3_Labb3b.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "leowic-3_Labb3b.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D750C64F180C37E6000D762A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D750C651180C37E6000D762A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D750C653180C37E6000D762A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		D750C657180C37E6000D762A /* leowic-3_Labb3a-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "leowic-3_Labb3a-Info.plist"; sourceTree = "<group>"; };
+		D750C657180C37E6000D762A /* leowic-3_Labb3b-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "leowic-3_Labb3b-Info.plist"; sourceTree = "<group>"; };
 		D750C659180C37E6000D762A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D750C65B180C37E6000D762A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D750C65D180C37E6000D762A /* leowic-3_Labb3a-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "leowic-3_Labb3a-Prefix.pch"; sourceTree = "<group>"; };
+		D750C65D180C37E6000D762A /* leowic-3_Labb3b-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "leowic-3_Labb3b-Prefix.pch"; sourceTree = "<group>"; };
 		D750C65E180C37E6000D762A /* AldAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AldAppDelegate.h; sourceTree = "<group>"; };
 		D750C65F180C37E6000D762A /* AldAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AldAppDelegate.m; sourceTree = "<group>"; };
 		D750C661180C37E6000D762A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -101,7 +101,7 @@
 		D750C64D180C37E6000D762A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D750C64C180C37E6000D762A /* leowic-3_Labb3a.app */,
+				D750C64C180C37E6000D762A /* leowic-3_Labb3b.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -132,10 +132,10 @@
 		D750C656180C37E6000D762A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D750C657180C37E6000D762A /* leowic-3_Labb3a-Info.plist */,
+				D750C657180C37E6000D762A /* leowic-3_Labb3b-Info.plist */,
 				D750C658180C37E6000D762A /* InfoPlist.strings */,
 				D750C65B180C37E6000D762A /* main.m */,
-				D750C65D180C37E6000D762A /* leowic-3_Labb3a-Prefix.pch */,
+				D750C65D180C37E6000D762A /* leowic-3_Labb3b-Prefix.pch */,
 				D750C661180C37E6000D762A /* Default.png */,
 				D750C663180C37E6000D762A /* Default@2x.png */,
 				D750C665180C37E6000D762A /* Default-568h@2x.png */,
@@ -203,9 +203,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D750C64B180C37E6000D762A /* leowic-3_Labb3a */ = {
+		D750C64B180C37E6000D762A /* leowic-3_Labb3b */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D750C672180C37E6000D762A /* Build configuration list for PBXNativeTarget "leowic-3_Labb3a" */;
+			buildConfigurationList = D750C672180C37E6000D762A /* Build configuration list for PBXNativeTarget "leowic-3_Labb3b" */;
 			buildPhases = (
 				D750C648180C37E6000D762A /* Sources */,
 				D750C649180C37E6000D762A /* Frameworks */,
@@ -215,9 +215,9 @@
 			);
 			dependencies = (
 			);
-			name = "leowic-3_Labb3a";
+			name = "leowic-3_Labb3b";
 			productName = "leowic-3_Labb3a";
-			productReference = D750C64C180C37E6000D762A /* leowic-3_Labb3a.app */;
+			productReference = D750C64C180C37E6000D762A /* leowic-3_Labb3b.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -230,7 +230,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = LTU;
 			};
-			buildConfigurationList = D750C647180C37E6000D762A /* Build configuration list for PBXProject "leowic-3_Labb3a" */;
+			buildConfigurationList = D750C647180C37E6000D762A /* Build configuration list for PBXProject "leowic-3_Labb3b" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -242,7 +242,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D750C64B180C37E6000D762A /* leowic-3_Labb3a */,
+				D750C64B180C37E6000D762A /* leowic-3_Labb3b */,
 			);
 		};
 /* End PBXProject section */
@@ -366,9 +366,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "leowic-3_Labb3a/leowic-3_Labb3a-Prefix.pch";
-				INFOPLIST_FILE = "leowic-3_Labb3a/leowic-3_Labb3a-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "leowic-3_Labb3a/leowic-3_Labb3b-Prefix.pch";
+				INFOPLIST_FILE = "leowic-3_Labb3a/leowic-3_Labb3b-Info.plist";
+				PRODUCT_NAME = "leowic-3_Labb3b";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -377,9 +377,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "leowic-3_Labb3a/leowic-3_Labb3a-Prefix.pch";
-				INFOPLIST_FILE = "leowic-3_Labb3a/leowic-3_Labb3a-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "leowic-3_Labb3a/leowic-3_Labb3b-Prefix.pch";
+				INFOPLIST_FILE = "leowic-3_Labb3a/leowic-3_Labb3b-Info.plist";
+				PRODUCT_NAME = "leowic-3_Labb3b";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -387,7 +387,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D750C647180C37E6000D762A /* Build configuration list for PBXProject "leowic-3_Labb3a" */ = {
+		D750C647180C37E6000D762A /* Build configuration list for PBXProject "leowic-3_Labb3b" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D750C670180C37E6000D762A /* Debug */,
@@ -396,13 +396,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D750C672180C37E6000D762A /* Build configuration list for PBXNativeTarget "leowic-3_Labb3a" */ = {
+		D750C672180C37E6000D762A /* Build configuration list for PBXNativeTarget "leowic-3_Labb3b" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D750C673180C37E6000D762A /* Debug */,
 				D750C674180C37E6000D762A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
