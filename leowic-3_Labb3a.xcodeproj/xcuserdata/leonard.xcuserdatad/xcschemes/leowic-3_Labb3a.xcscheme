@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D750C64B180C37E6000D762A"
                BuildableName = "leowic-3_Labb3a.app"
-               BlueprintName = "leowic-3_Labb3b"
-               ReferencedContainer = "container:leowic-3_Labb3b.xcodeproj">
+               BlueprintName = "leowic-3_Labb3a"
+               ReferencedContainer = "container:leowic-3_Labb3a.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D750C64B180C37E6000D762A"
             BuildableName = "leowic-3_Labb3a.app"
-            BlueprintName = "leowic-3_Labb3b"
-            ReferencedContainer = "container:leowic-3_Labb3b.xcodeproj">
+            BlueprintName = "leowic-3_Labb3a"
+            ReferencedContainer = "container:leowic-3_Labb3a.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -53,8 +53,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D750C64B180C37E6000D762A"
             BuildableName = "leowic-3_Labb3a.app"
-            BlueprintName = "leowic-3_Labb3b"
-            ReferencedContainer = "container:leowic-3_Labb3b.xcodeproj">
+            BlueprintName = "leowic-3_Labb3a"
+            ReferencedContainer = "container:leowic-3_Labb3a.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -71,8 +71,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D750C64B180C37E6000D762A"
             BuildableName = "leowic-3_Labb3a.app"
-            BlueprintName = "leowic-3_Labb3b"
-            ReferencedContainer = "container:leowic-3_Labb3b.xcodeproj">
+            BlueprintName = "leowic-3_Labb3a"
+            ReferencedContainer = "container:leowic-3_Labb3a.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
